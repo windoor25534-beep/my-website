@@ -12,7 +12,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background: radial-gradient(circle at center, #1a160d 0%, #050507 100%);
+            background-color: #050507;
             color: #ffffff;
             height: 100vh;
             display: flex;
@@ -22,33 +22,62 @@
             text-align: center;
             padding: 20px;
             overflow: hidden;
+            position: relative;
         }
+
+        /* เอฟเฟกต์แสงเหนือเคลื่อนไหวตลอดเวลา */
+        .aurora-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(125deg, #050507, #1a1405, #050507, #261b07);
+            background-size: 400% 400%;
+            animation: auroraAnimation 12s ease infinite;
+        }
+
+        @keyframes auroraAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .wrapper {
             width: 100%;
             max-width: 440px;
             padding: 35px 20px;
-            background: rgba(15, 15, 20, 0.65);
+            background: rgba(12, 12, 16, 0.7);
             backdrop-filter: blur(15px);
-            border: 1px solid rgba(212, 175, 55, 0.3);
+            border: 1px solid rgba(212, 175, 55, 0.35);
             border-radius: 28px;
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.9), 0 0 35px rgba(212, 175, 55, 0.1);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.9), 0 0 40px rgba(212, 175, 55, 0.15);
             position: relative;
+            animation: floatBox 4s ease-in-out infinite;
         }
+
+        @keyframes floatBox {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
         .wrapper::before {
             content: '';
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 70px;
+            width: 80px;
             height: 3px;
             background: linear-gradient(90deg, transparent, #d4af37, transparent);
             border-radius: 0 0 5px 5px;
             box-shadow: 0 0 15px #d4af37;
         }
+
         .badge-top {
             display: inline-block;
-            background: rgba(212, 175, 55, 0.1);
+            background: rgba(212, 175, 55, 0.12);
             color: #f3e5ab;
             font-size: 0.65rem;
             font-weight: 800;
@@ -59,14 +88,16 @@
             margin-bottom: 20px;
             text-transform: uppercase;
         }
+
         .main-title {
             color: #ffffff;
             font-size: 3rem;
             font-weight: 900;
             letter-spacing: 5px;
-            text-shadow: 0 0 25px rgba(212, 175, 55, 0.6), 0 0 10px rgba(212, 175, 55, 0.3);
+            text-shadow: 0 0 25px rgba(212, 175, 55, 0.7), 0 0 10px rgba(212, 175, 55, 0.4);
             margin-bottom: 5px;
         }
+
         .sub-title {
             color: #b0a88e;
             font-size: 0.8rem;
@@ -74,6 +105,7 @@
             text-transform: uppercase;
             margin-bottom: 30px;
         }
+
         .gang-info {
             display: flex;
             align-items: center;
@@ -83,22 +115,31 @@
             font-size: 0.82rem;
             margin-bottom: 35px;
             letter-spacing: 2px;
-            background: rgba(25, 22, 15, 0.6);
+            background: rgba(25, 22, 15, 0.7);
             padding: 10px 20px;
             border-radius: 12px;
-            border: 1px solid rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
+
         .dot {
             width: 6px;
             height: 6px;
             background-color: #d4af37;
             border-radius: 50%;
             box-shadow: 0 0 10px #d4af37;
+            animation: pulseDot 1.5s infinite;
         }
+
+        @keyframes pulseDot {
+            0%, 100% { opacity: 0.4; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* อนิเมชันปุ่มกดสุดพรีเมียม */
         .enter-btn {
             display: block;
             width: 100%;
-            background: linear-gradient(135deg, #241e0c 0%, #0d0a04 100%);
+            background: linear-gradient(135deg, #2a220e 0%, #0d0a04 100%);
             border: 2px solid #d4af37;
             color: #ffffff;
             padding: 20px;
@@ -106,18 +147,38 @@
             text-decoration: none;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25), inset 0 0 15px rgba(212, 175, 55, 0.15);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.3), inset 0 0 15px rgba(212, 175, 55, 0.15);
+            transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
+        .enter-btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transform: rotate(45deg) translateX(-100%);
+            transition: 0.6s;
+        }
+
+        .enter-btn:hover::after {
+            transform: rotate(45deg) translateX(100%);
+        }
+
         .enter-btn:hover {
-            border-color: #f3e5ab;
-            box-shadow: 0 0 35px rgba(212, 175, 55, 0.5), inset 0 0 20px rgba(212, 175, 55, 0.3);
+            border-color: #ffea85;
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.6), inset 0 0 25px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
         }
+
         .enter-btn:active {
-            transform: scale(0.96);
+            transform: scale(0.95) translateY(2px);
             background: #d4af37;
-            color: #000;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.9);
         }
+
         .btn-text {
             font-size: 1.15rem;
             font-weight: 900;
@@ -125,23 +186,30 @@
             margin-bottom: 6px;
             color: #f3e5ab;
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.8);
+            transition: 0.2s;
         }
+
         .enter-btn:active .btn-text {
-            color: #000;
+            color: #050507;
             text-shadow: none;
         }
+
         .btn-subtext {
             font-size: 0.68rem;
             color: #a3997c;
             letter-spacing: 1.5px;
             text-transform: uppercase;
+            transition: 0.2s;
         }
+
         .enter-btn:active .btn-subtext {
-            color: #333;
+            color: #222;
         }
     </style>
 </head>
 <body>
+
+    <div class="aurora-bg"></div>
 
     <div class="wrapper">
         <div class="badge-top">ELITE SANCTUARY</div>
