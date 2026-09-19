@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ONLYWIN - THE OFFICIAL MEMBERS ROSTER</title>
+    <title>ONLYWIN - OFFICIAL MEMBERS ROSTER</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,15 +12,15 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background-color: #050507;
+            background-color: #020204;
             color: #ffffff;
-            padding: 15px;
+            padding: 20px;
             min-height: 100vh;
             position: relative;
             overflow-x: hidden;
         }
 
-        /* พื้นหลังแสงเหนือเคลื่อนไหว */
+        /* พื้นหลังแสงเหนือเคลื่อนไหวระดับโปร */
         .aurora-bg {
             position: fixed;
             top: 0;
@@ -28,7 +28,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(125deg, #050507, #1a1405, #050507, #261b07);
+            background: linear-gradient(125deg, #020204, #1a1202, #020204, #291a03);
             background-size: 400% 400%;
             animation: auroraAnimation 12s ease infinite;
         }
@@ -39,207 +39,231 @@
             100% { background-position: 0% 50%; }
         }
 
+        /* เฮดเดอร์บนสุด */
         header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 25px;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-            background: rgba(10, 10, 14, 0.6);
-            backdrop-filter: blur(10px);
-            padding: 12px 15px;
-            border-radius: 12px;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            background: rgba(12, 12, 18, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 14px 20px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
         }
         .logo-text {
-            color: #d4af37;
+            color: #f7e9b4;
             font-weight: 900;
-            font-size: 1.2rem;
-            letter-spacing: 1.5px;
-            text-shadow: 0 0 12px rgba(212, 175, 55, 0.7);
+            font-size: 1.25rem;
+            letter-spacing: 2.5px;
+            text-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
         }
         .nav-btns {
             display: flex;
-            gap: 8px;
+            gap: 10px;
         }
         .btn {
-            background: rgba(20, 18, 12, 0.9);
-            color: #f3e5ab;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 6px 12px;
-            border-radius: 8px;
+            background: rgba(20, 16, 8, 0.9);
+            color: #f7e9b4;
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 8px 16px;
+            border-radius: 10px;
             font-size: 0.7rem;
             cursor: pointer;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
             font-weight: bold;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
             transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
         .btn:hover {
-            border-color: #d4af37;
-            background: rgba(212, 175, 55, 0.2);
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+            border-color: #fff1a8;
+            background: rgba(212, 175, 55, 0.25);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
+        .btn:active {
+            transform: scale(0.93);
+            background: #d4af37;
+            color: #030305;
+        }
+
+        /* หัวข้อหลัก */
         .main-title-container {
             text-align: center;
-            margin: 20px 0 30px 0;
+            margin: 25px 0 35px 0;
         }
         .main-title {
             color: #d4af37;
-            font-size: 2rem;
+            font-size: 2.4rem;
             font-weight: 900;
-            letter-spacing: 3px;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.7), 0 0 10px rgba(212, 175, 55, 0.4);
-            margin-bottom: 4px;
+            letter-spacing: 4px;
+            text-shadow: 0 0 25px rgba(212, 175, 55, 0.7), 0 0 10px rgba(212, 175, 55, 0.4);
+            margin-bottom: 6px;
         }
         .sub-title {
-            color: #a3997c;
+            color: #9c9172;
             font-size: 0.75rem;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-transform: uppercase;
         }
+        
+        /* หัวข้อหมวดหมู่แก๊ง */
         .section-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: #d4af37;
-            margin: 25px 0 12px 0;
+            color: #f7e9b4;
+            margin: 35px 0 15px 0;
             font-size: 0.95rem;
             font-weight: bold;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-            padding-bottom: 6px;
-            letter-spacing: 1px;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 8px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
         .count-badge {
             font-size: 0.7rem;
-            color: #c4b998;
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            background: rgba(18, 16, 10, 0.8);
-            padding: 2px 8px;
-            border-radius: 6px;
+            color: #f7e9b4;
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            background: rgba(18, 14, 8, 0.85);
+            padding: 3px 10px;
+            border-radius: 8px;
+            box-shadow: inset 0 0 8px rgba(212, 175, 55, 0.2);
         }
 
-        /* การ์ดสมาชิกแบบพรีเมียมตามเรฟ */
+        /* การ์ดสมาชิกพรีเมียมดีไซน์ระดับเทพ */
         .member-list {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 14px;
         }
         .member-card {
-            background: rgba(15, 15, 22, 0.75);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.25);
-            border-radius: 14px;
-            padding: 12px 15px;
+            background: rgba(12, 12, 18, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 16px;
+            padding: 14px 18px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-            transition: 0.2s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(212, 175, 55, 0.05);
+            transition: all 0.25s ease;
         }
         .member-card:hover {
-            border-color: #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+            border-color: #fff1a8;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4), inset 0 0 20px rgba(212, 175, 55, 0.15);
+            transform: translateY(-2px);
         }
         .member-left {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
         }
+        
+        /* รูปโปรไฟล์และมงกุฎแบบลงตัว */
         .avatar-container {
             position: relative;
+            width: 58px;
+            height: 58px;
         }
         .member-avatar {
-            width: 52px;
-            height: 52px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             border: 2px solid #d4af37;
             object-fit: cover;
-            box-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
         }
-        /* ตำแหน่งมงกุฎมุมขวาบนของรูปโปรไฟล์ */
         .crown-icon {
             position: absolute;
-            top: -4px;
-            right: -2px;
-            background: #111;
+            top: -7px;
+            left: -5px;
+            background: #141006;
             border-radius: 50%;
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 0.65rem;
             border: 1px solid #d4af37;
-            box-shadow: 0 0 5px rgba(255, 215, 0, 0.8);
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.9);
+            z-index: 2;
         }
+
         .member-details {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
         }
         .member-name {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             font-weight: bold;
             color: #ffffff;
             letter-spacing: 0.5px;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
         }
         .member-role {
             display: inline-block;
             background: rgba(212, 175, 55, 0.15);
-            color: #f3e5ab;
-            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #f7e9b4;
+            border: 1px solid rgba(212, 175, 55, 0.4);
             font-size: 0.6rem;
-            font-weight: bold;
-            padding: 2px 8px;
+            font-weight: 800;
+            padding: 3px 10px;
             border-radius: 6px;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             text-transform: uppercase;
             width: fit-content;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
         }
 
-        /* ปุ่มไอคอน Social ด้านขวา (แบบพรีเมียม) */
+        /* ปุ่มโซเชียลขวาขอบทองสุดเนี๊ยบ */
         .social-icon-btn {
-            width: 40px;
-            height: 40px;
-            background: rgba(20, 18, 12, 0.8);
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            border-radius: 10px;
+            width: 44px;
+            height: 44px;
+            background: rgba(20, 16, 8, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #f3e5ab;
+            color: #f7e9b4;
             text-decoration: none;
-            transition: 0.2s;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.2s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
         .social-icon-btn svg {
             width: 20px;
             height: 20px;
-            fill: #f3e5ab;
+            fill: #f7e9b4;
             transition: 0.2s;
         }
         .social-icon-btn:hover {
             background: #d4af37;
             border-color: #fff;
-            box-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.9);
+            transform: scale(1.05);
         }
         .social-icon-btn:hover svg {
-            fill: #050507;
+            fill: #020204;
         }
 
         .empty-slot {
             text-align: center;
-            padding: 20px;
-            background: rgba(15, 15, 20, 0.5);
-            border: 1px dashed rgba(212, 175, 55, 0.25);
-            border-radius: 12px;
-            color: #8c8268;
+            padding: 22px;
+            background: rgba(12, 12, 18, 0.5);
+            border: 1px dashed rgba(212, 175, 55, 0.3);
+            border-radius: 14px;
+            color: #8c8163;
             font-size: 0.75rem;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
     </style>
 </head>
@@ -260,59 +284,41 @@
         <div class="sub-title">THE OFFICIAL MEMBERS ROSTER</div>
     </div>
 
-    <!-- GANG LEADER SECTION -->
+    <!-- 👑 GANG LEADER SECTION -->
     <div class="section-header">
         <span>👑 GANG LEADER</span>
         <span class="count-badge">[1]</span>
     </div>
     
     <div class="member-list">
-        <!-- ตัวอย่างการ์ด: แบบใส่ไอคอน Instagram -->
+        <!-- ตัวอย่างการ์ด Leader -->
         <div class="member-card">
             <div class="member-left">
                 <div class="avatar-container">
-                    <img src="https://cdn.discordapp.com/attachments/1542675599129317387/1550882045373456464/d3aaa0254037a7df2afa0d8e97060ec0_1.jpg?ex=6aaff2f5&is=6aaea175&hm=2b7b7713d5c8c918847098c656f0ab1011ee89650cb52529b600bb4a4ae73460&" alt="Avatar" class="member-avatar">
                     <span class="crown-icon">👑</span>
+                    <img src="https://cdn.discordapp.com/attachments/1542675599129317387/1550882045373456464/d3aaa0254037a7df2afa0d8e97060ec0_1.jpg?ex=6aaff2f5&is=6aaea175&hm=2b7b7713d5c8c918847098c656f0ab1011ee89650cb52529b600bb4a4ae73460&" alt="Avatar" class="member-avatar">
                 </div>
                 <div class="member-details">
                     <div class="member-name">onlywin</div>
-                    <div class="member-role">LEADER</div>
+                    <div class="member-role">development</div>
                 </div>
             </div>
-            <!-- ปุ่มไอคอน Instagram -->
             <a href="https://www.instagram.com/wvpwvvp_?stkn=MWN2bW5sYnY2Mnh1bA==" target="_blank" class="social-icon-btn" title="Instagram">
                 <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
             </a>
         </div>
-
-        <!-- ตัวอย่างการ์ด: แบบใส่ไอคอน Facebook (ถ้าจะใช้เฟซบุ๊กให้ก๊อปปี้อันนี้ไปวาง) -->
-        <div class="member-card">
-            <div class="member-left">
-                <div class="avatar-container">
-                    <img src="https://via.placeholder.com/150" alt="Avatar" class="member-avatar">
-                    <span class="crown-icon">👑</span>
-                </div>
-                <div class="member-details">
-                    <div class="member-name">ชื่อสมาชิกคนที่ 2</div>
-                    <div class="member-role">MEMBER</div>
-                </div>
-            </div>
-            <!-- ปุ่มไอคอน Facebook -->
-            <a href="https://facebook.com/yourlink" target="_blank" class="social-icon-btn" title="Facebook">
-                <svg viewBox="0 0 24 24"><path d="M9 8H6v4h3v12h5V12h3.642L18 8h-4V6.333C14 5.37 14.5 5 15.5 5H18V0h-3.808C10.59 0 9 1.581 9 4.75V8z"/></svg>
-            </a>
-        </div>
     </div>
 
-
-    <!-- MEMBER GANG SECTION -->
+    <!-- 🛡️ MEMBER GANG SECTION -->
     <div class="section-header">
         <span>🛡️ MEMBER GANG</span>
         <span class="count-badge">[0]</span>
     </div>
 
-    <div class="empty-slot">
-        - พื้นที่ว่างสำหรับใส่รายชื่อ Member Gang -
+    <div class="member-list">
+        <div class="empty-slot">
+            - พื้นที่ว่างสำหรับใส่รายชื่อ Member Gang -
+        </div>
     </div>
 
 </body>
